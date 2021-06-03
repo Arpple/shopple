@@ -11,12 +11,12 @@ class UserService
         $this->userRepo = $userRepo;
     }
 
-    public function create(string $name): UserEntity
+    public function signup(string $name): UserEntity
     {
         return $this->userRepo->create($name);
     }
 
-    public function find(string $name): UserEntity
+    public function login(string $name): UserEntity
     {
         return $this->userRepo->findByName($name);
     }
