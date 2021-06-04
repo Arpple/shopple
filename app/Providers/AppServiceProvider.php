@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Core\Catalog\Boundary\IProductRepo;
+use App\Core\Catalog\Test\ExampleProductsRepo;
+use App\Core\User\Boundary\IUserRepo;
+use App\Core\User\Test\SingleUserRepo;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +17,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(IUserRepo::class, fn () => new SingleUserRepo);
+        $this->app->singleton(IProductRepo::class, fn () => new ExampleProductsRepo);
     }
 
     /**
