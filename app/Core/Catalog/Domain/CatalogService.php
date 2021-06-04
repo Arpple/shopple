@@ -21,6 +21,6 @@ class CatalogService
 
     public function findProduct(int $id): ?ProductEntity
     {
-
+        return $this->productRepo->find($id);
     }
 }

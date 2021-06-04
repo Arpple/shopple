@@ -23,4 +23,16 @@ class CatalogServiceTest extends TestCase
         $this->assertEquals('iphone', $products[0]->name);
         $this->assertEquals('M4A', $products[2]->name);
     }
+
+    public function test_find_product_not_found()
+    {
+        $product = $this->service->findProduct(12);
+        $this->assertNull($product);
+    }
+
+    public function test_find_product()
+    {
+        $product = $this->service->findProduct(1);
+        $this->assertEquals('iphone', $product->name);
+    }
 }
