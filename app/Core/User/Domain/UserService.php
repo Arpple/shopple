@@ -8,9 +8,9 @@ class UserService
 {
     private IUserRepo $userRepo;
 
-    public function __construct(IUserRepo $userRepo)
+    public function __construct()
     {
-        $this->userRepo = $userRepo;
+        $this->userRepo = app()->make(IUserRepo::class);
     }
 
     public function signup(string $name): UserEntity

@@ -2,6 +2,7 @@
 
 namespace App\Core\Catalog\Test;
 
+use App\Core\Catalog\Boundary\IProductRepo;
 use App\Core\Catalog\Domain\CatalogService;
 use PHPUnit\Framework\TestCase;
 
@@ -12,8 +13,8 @@ class CatalogServiceTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $repo = new ExampleProductsRepo();
-        $this->service = new CatalogService($repo);
+        app()->bind(IProductRepo::class, fn () => new ExampleProductsRepo);
+        $this->service = new CatalogService();
     }
 
     public function test_list_all_product_from_repo()
