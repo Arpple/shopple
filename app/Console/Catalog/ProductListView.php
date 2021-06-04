@@ -4,7 +4,7 @@ namespace App\Console\Catalog;
 
 use App\Core\Catalog\Domain\ProductEntity;
 
-class ProductView
+class ProductListView
 {
     private ProductEntity $product;
 
@@ -16,11 +16,6 @@ class ProductView
     public function toString(): string
     {
         $p = $this->product;
-
-        return implode(PHP_EOL, [
-            $p->name,
-            '  ' . $p->description,
-            '$' . $p->price,
-        ]);
+        return "{$p->id} : {$p->name} \${$p->price}";
     }
 }

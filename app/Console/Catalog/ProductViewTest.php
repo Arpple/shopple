@@ -7,10 +7,18 @@ use PHPUnit\Framework\TestCase;
 
 class ProductViewTest extends TestCase
 {
-    public function test_print_product()
+    public function test_format_product_to_string()
     {
         $product = new ProductEntity(1, 'iphone', 'smart phone', 100);
-        $str = (new ProductView($product))->toString();
-        $this->assertEquals('1 : iphone $100', $str);
+        $view = new ProductView($product);
+        $str = $view->toString();
+
+        $expected = implode(PHP_EOL, [
+            'iphone',
+            '  smart phone',
+            '$100',
+        ]);
+
+        $this->assertEquals($expected, $str);
     }
 }

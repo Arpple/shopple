@@ -2,25 +2,25 @@
 
 namespace App\Console\Commands;
 
-use App\Console\Catalog\ProductListView;
+use App\Console\Catalog\ProductView;
 use App\Core\Catalog\Domain\CatalogService;
 use Illuminate\Console\Command;
 
-class CatalogList extends Command
+class CatalogView extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'catalog:list';
+    protected $signature = 'catalog:view {id}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'List all products';
+    protected $description = 'View product detail';
 
     /**
      * Create a new command instance.
@@ -39,14 +39,13 @@ class CatalogList extends Command
      */
     public function handle()
     {
-        (new CatalogService)
-            ->listProducts()
-            ->map(fn ($p) => new ProductListView($p))
-            ->map(fn ($p) => $p->toString())
-            ->each(function ($p) {
-                echo $p;
-                echo PHP_EOL;
-            });
+        $id = $this->argument('id');
+        $id = intval($id);
+
+        $product = (new CatalogService)->findProduct($id);
+        $product = new ProductView($product);
+
+        echo $product->toString() . PHP_EOL;
 
         return 0;
     }
