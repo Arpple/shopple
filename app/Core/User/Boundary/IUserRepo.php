@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Core\User;
+namespace App\Core\User\Boundary;
+
+use App\Core\User\Domain\UserEntity;
 
 interface IUserRepo
 {

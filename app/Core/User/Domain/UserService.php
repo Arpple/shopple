@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Core\User;
+namespace App\Core\User\Domain;
+
+use App\Core\User\Boundary\IUserRepo;
 
 class UserService
 {

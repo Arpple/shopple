@@ -2,8 +2,8 @@
 
 namespace App\Core\User\Test;
 
-use App\Core\User\UserAlreadyExistsException;
-use App\Core\User\UserService;
+use App\Core\User\Domain\UserAlreadyExistsException;
+use App\Core\User\Domain\UserService;
 use Tests\TestCase as TestsTestCase;
 
 class UserServiceTest extends TestsTestCase

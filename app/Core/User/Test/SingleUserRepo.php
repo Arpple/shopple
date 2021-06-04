@@ -2,8 +2,8 @@
 
 namespace App\Core\User\Test;
 
-use App\Core\User\IUserRepo;
-use App\Core\User\UserEntity;
+use App\Core\User\Boundary\IUserRepo;
+use App\Core\User\Domain\UserEntity;
 
 class SingleUserRepo implements IUserRepo
 {
