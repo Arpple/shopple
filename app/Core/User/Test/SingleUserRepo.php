@@ -23,7 +23,10 @@ class SingleUserRepo implements IUserRepo
 
     public function findByName(string $name): ?UserEntity
     {
-        return $name == $this->user->name
+        $isExists = !is_null($this->user)
+            && ($name == $this->user->name);
+
+        return $isExists
             ? $this->user
             : null;
     }

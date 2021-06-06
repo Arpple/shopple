@@ -29,4 +29,13 @@ class UserServiceTest extends TestsTestCase
         $this->expectException(UserAlreadyExistsException::class);
         (new UserService($userRepo))->signup('arpple');
     }
+
+    public function test_login_without_signup_before()
+    {
+        $userRepo = new SingleUserRepo(1);
+        app()->bind(IUserRepo::class, fn () => $userRepo);
+
+        $user = (new UserService)->login('arpple');
+        $this->assertNull($user);
+    }
 }

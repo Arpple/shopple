@@ -18,7 +18,7 @@ class UserService
         return $this->userRepo->create($name);
     }
 
-    public function login(string $name): UserEntity
+    public function login(string $name): ?UserEntity
     {
         return $this->userRepo->findByName($name);
     }
