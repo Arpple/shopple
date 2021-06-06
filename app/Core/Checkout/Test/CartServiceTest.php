@@ -23,21 +23,21 @@ class CartServiceTest extends TestCase
 
     public function test_get_empty_cart_have_no_item()
     {
-        $cart = (new CartService)->get(1);
+        $cart = (new CartService(1))->get();
         $this->assertEmpty($cart->items);
         $this->assertEquals(0, $cart->totalPrice());
     }
 
-    public function test_get_cart_with_items()
+    public function test_get_cart_with_new_create_items()
     {
-        $this->itemRepo
-            ->addItem(Example::itemA())
-            ->addItem(Example::itemB());
+        $cart = (new CartService(1))
+            ->addProduct(1, 1)
+            ->addProduct(2, 2)
+            ->get();
 
-        $cart = (new CartService)->get(1);
         $this->assertCount(2, $cart->items);
-        $this->assertEquals('A', $cart->items[0]->product->name);
-        $this->assertEquals('B', $cart->items[1]->product->name);
+        $this->assertEquals('Product 1', $cart->items[0]->product->name);
+        $this->assertEquals('Product 2', $cart->items[1]->product->name);
         $this->assertEquals(500, $cart->totalPrice());
     }
 }
