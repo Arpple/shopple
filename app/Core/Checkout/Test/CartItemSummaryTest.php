@@ -12,9 +12,9 @@ class CartItemSummaryTest extends TestCase
     public function test_calculate_item_total_price()
     {
         $product = new ProductEntity(1, 'iphone');
-        $item = new CartItemEntity(1, 2);
+        $item = new CartItemEntity(1, $product, 2);
         $price = 100;
-        $summary = new CartItemSummary($item, $product, $price);
+        $summary = new CartItemSummary($item, $price);
 
         $total = $summary->totalPrice();
         $this->assertEquals(200, $total);

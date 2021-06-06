@@ -8,10 +8,10 @@ class CartItemSummary
     public ProductEntity $product;
     public int $price;
 
-    public function __construct(CartItemEntity $item, ProductEntity $product, int $price)
+    public function __construct(CartItemEntity $item, int $price)
     {
         $this->item = $item;
-        $this->product = $product;
+        $this->product = $item->product;
         $this->price = $price;
     }
 

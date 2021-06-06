@@ -17,8 +17,8 @@ class CartEntityTest extends TestCase
     public function test_calcualte_cart_total_price()
     {
         $cart = (new CartEntity)
-            ->addItem(ExampleCartItem::itemA())
-            ->addItem(ExampleCartItem::itemB());
+            ->addItem(Example::itemSummaryA())
+            ->addItem(Example::itemSummaryB());
 
         $total = $cart->totalPrice();
         $this->assertEquals(500, $total);

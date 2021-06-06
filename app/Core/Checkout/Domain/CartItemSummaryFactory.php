@@ -5,12 +5,11 @@ namespace App\Core\Checkout\Domain;
 class CartItemSummaryFactory
 {
     private CartItemEntity $item;
-    private ProductEntity $product;
     private int $price;
 
-    public function withCreateItem(int $itemId, int $quantity): self
+    public function withCreateItem(int $itemId, ProductEntity $product, int $quantity): self
     {
-        $this->item = new CartItemEntity($itemId, $quantity);
+        $this->item = new CartItemEntity($itemId, $product, $quantity);
         return $this;
     }
 
@@ -28,6 +27,6 @@ class CartItemSummaryFactory
 
     public function create(): CartItemSummary
     {
-        return new CartItemSummary($this->item, $this->product, $this->price);
+        return new CartItemSummary($this->item, $this->price);
     }
 }

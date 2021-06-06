@@ -3,6 +3,7 @@
 namespace App\Core\Checkout\Test;
 
 use App\Core\Checkout\Boundary\ICartItemRepo;
+use App\Core\Checkout\Boundary\IPriceRepo;
 use App\Core\Checkout\Domain\CartService;
 use PHPUnit\Framework\TestCase;
 
@@ -12,8 +13,12 @@ class CartServiceTest extends TestCase
 
     public function setUp(): void
     {
+        parent::setUp();
         $this->itemRepo = new SingleUserCartItemRepo();
         app()->bind(ICartItemRepo::class, fn () => $this->itemRepo);
+
+        $priceRepo = new HundredTimesPriceRepo();
+        app()->bind(IPriceRepo::class, fn () => $priceRepo);
     }
 
     public function test_get_empty_cart_have_no_item()
@@ -26,8 +31,8 @@ class CartServiceTest extends TestCase
     public function test_get_cart_with_items()
     {
         $this->itemRepo
-            ->addItem(ExampleCartItem::itemA())
-            ->addItem(ExampleCartItem::itemB());
+            ->addItem(Example::itemA())
+            ->addItem(Example::itemB());
 
         $cart = (new CartService)->get(1);
         $this->assertCount(2, $cart->items);
