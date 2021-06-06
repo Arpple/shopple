@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Core\Checkout\Domain\CartService;
 use App\Core\User\Domain\UserService;
 use Illuminate\Console\Command;
 
@@ -41,10 +42,18 @@ class CartView extends Command
         $username = $this->argument('username');
         $user = (new UserService)->login($username);
 
-        $product = (new CatalogService)->findProduct($id);
-        $product = new ProductView($product);
+        if (is_null($user)) {
+            echo 'user not found';
+            return 1;
+        }
 
-        echo $product->toString() . PHP_EOL;
+        $cart = (new CartService($user->id))
+            ->get();
+
+        $result = (new CartView($user, $cart))
+            ->toString();
+
+        echo $result . PHP_EOL;
 
         return 0;
     }
