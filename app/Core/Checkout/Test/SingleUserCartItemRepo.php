@@ -22,6 +22,11 @@ class SingleUserCartItemRepo implements ICartItemRepo
         $this->items[$productId] = new CartItemEntity($userId, $product, $quantity);
     }
 
+    public function destroy(int $userId, int $productId): void
+    {
+        unset($this->items[$productId]);
+    }
+
     public function addItem(CartItemEntity $item): self
     {
         $this->items[] = $item;

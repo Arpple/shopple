@@ -33,8 +33,13 @@ class CartService
         return $cart;
     }
 
-    public function addProduct(int $productId, int $quantity): self
+    public function setProductItem(int $productId, int $quantity): self
     {
+        if ($quantity <= 0) {
+            $this->itemRepo->destroy($this->userId, $productId);
+            return $this;
+        }
+
         $this->itemRepo->save($this->userId, $productId, $quantity);
         return $this;
     }
