@@ -3,9 +3,6 @@
 namespace App\Core\Checkout\Test;
 
 use App\Core\Checkout\Domain\CartEntity;
-use App\Core\Checkout\Domain\CartItemEntity;
-use App\Core\Checkout\Domain\CartItemFactory;
-use App\Core\Checkout\Domain\ProductEntity;
 use PHPUnit\Framework\TestCase;
 
 class CartEntityTest extends TestCase
@@ -19,17 +16,9 @@ class CartEntityTest extends TestCase
 
     public function test_calcualte_cart_total_price()
     {
-        $itemA = (new CartItemFactory)
-            ->withCreateProduct(1, 'A')
-            ->create(1, 1, 100);
-
-        $itemB = (new CartItemFactory)
-            ->withCreateProduct(2, 'B')
-            ->create(2, 2, 200);
-
         $cart = (new CartEntity)
-            ->addItem($itemA)
-            ->addItem($itemB);
+            ->addItem(ExampleCartItem::itemA())
+            ->addItem(ExampleCartItem::itemB());
 
         $total = $cart->totalPrice();
         $this->assertEquals(500, $total);

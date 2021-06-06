@@ -8,16 +8,16 @@ use Illuminate\Support\Collection;
 
 class SingleUserCartItemRepo implements ICartItemRepo
 {
-    private Collection $items;
+    private array $items = [];
 
     public function getUserItems(int $userId): Collection
     {
-        return $this->items;
+        return collect($this->items);
     }
 
     public function addItem(CartItemEntity $item): self
     {
-        $this->items->add($item);
+        $this->items[] = $item;
         return $this;
     }
 }

@@ -20,5 +20,19 @@ class CartServiceTest extends TestCase
     {
         $cart = (new CartService)->get(1);
         $this->assertEmpty($cart->items);
+        $this->assertEquals(0, $cart->totalPrice());
+    }
+
+    public function test_get_cart_with_items()
+    {
+        $this->itemRepo
+            ->addItem(ExampleCartItem::itemA())
+            ->addItem(ExampleCartItem::itemB());
+
+        $cart = (new CartService)->get(1);
+        $this->assertCount(2, $cart->items);
+        $this->assertEquals('A', $cart->items[0]->product->name);
+        $this->assertEquals('B', $cart->items[1]->product->name);
+        $this->assertEquals(500, $cart->totalPrice());
     }
 }
