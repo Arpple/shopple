@@ -4,6 +4,7 @@ namespace App\Core\Checkout\Test;
 
 use App\Core\Checkout\Boundary\ICartItemRepo;
 use App\Core\Checkout\Boundary\IPriceRepo;
+use App\Core\Checkout\Domain\CartEntity;
 use App\Core\Checkout\Domain\CartService;
 use PHPUnit\Framework\TestCase;
 
@@ -23,7 +24,7 @@ class CartServiceTest extends TestCase
         app()->bind(IPriceRepo::class, fn () => $priceRepo);
     }
 
-    public function test_get_empty_cart_have_no_item()
+    public function test_empty_cart_have_no_item()
     {
         $cart = (new CartService($this->userId))->get();
         $this->assertEmpty($cart->items);
