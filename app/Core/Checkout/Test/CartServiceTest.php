@@ -3,8 +3,6 @@
 namespace App\Core\Checkout\Test;
 
 use App\Core\Checkout\Boundary\ICartItemRepo;
-use App\Core\Checkout\Boundary\IPriceRepo;
-use App\Core\Checkout\Domain\CartEntity;
 use App\Core\Checkout\Domain\CartService;
 use PHPUnit\Framework\TestCase;
 
@@ -19,15 +17,12 @@ class CartServiceTest extends TestCase
         $this->userId = 1;
         $this->itemRepo = new SingleUserCartItemRepo($this->userId);
         app()->bind(ICartItemRepo::class, fn () => $this->itemRepo);
-
-        $priceRepo = new HundredTimesPriceRepo();
-        app()->bind(IPriceRepo::class, fn () => $priceRepo);
     }
 
     public function test_empty_cart_have_no_item()
     {
         $cart = (new CartService($this->userId))->get();
-        $this->assertEmpty($cart->items);
+        $this->assertEmpty($cart->items());
         $this->assertEquals(0, $cart->totalPrice());
     }
 
@@ -38,9 +33,9 @@ class CartServiceTest extends TestCase
             ->setProductItem(2, 2)
             ->get();
 
-        $this->assertCount(2, $cart->items);
-        $this->assertEquals('Product 1', $cart->items[0]->product->name);
-        $this->assertEquals('Product 2', $cart->items[1]->product->name);
+        $this->assertCount(2, $cart->items());
+        $this->assertEquals(1, $cart->items()[0]->productId);
+        $this->assertEquals(2, $cart->items()[1]->productId);
         $this->assertEquals(500, $cart->totalPrice());
     }
 
@@ -51,8 +46,8 @@ class CartServiceTest extends TestCase
             ->setProductItem(1, 2)
             ->get();
 
-        $this->assertCount(1, $cart->items);
-        $this->assertEquals('Product 1', $cart->items[0]->product->name);
+        $this->assertCount(1, $cart->items());
+        $this->assertEquals(1, $cart->items()[0]->productId);
         $this->assertEquals(200, $cart->totalPrice());
     }
 
@@ -63,7 +58,7 @@ class CartServiceTest extends TestCase
             ->setProductItem(1, 0)
             ->get();
 
-        $this->assertCount(0, $cart->items);
+        $this->assertCount(0, $cart->items());
         $this->assertEquals(0, $cart->totalPrice());
     }
 }

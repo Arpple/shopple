@@ -4,7 +4,6 @@ namespace App\Core\Checkout\Test;
 
 use App\Core\Checkout\Boundary\ICartItemRepo;
 use App\Core\Checkout\Domain\CartItemEntity;
-use App\Core\Checkout\Domain\ProductEntity;
 use Exception;
 use Illuminate\Support\Collection;
 
@@ -27,8 +26,7 @@ class SingleUserCartItemRepo implements ICartItemRepo
     public function save(int $userId, int $productId, int $quantity): void
     {
         $this->assertUser($userId);
-        $product = new ProductEntity($productId, "Product {$productId}");
-        $this->items[$productId] = new CartItemEntity($userId, $product, $quantity);
+        $this->items[$productId] = new CartItemEntity($productId, $quantity, $productId * 100);
     }
 
     public function destroy(int $userId, int $productId): void
