@@ -4,14 +4,19 @@ namespace App\Core\Checkout\Domain;
 
 class CartItemEntity
 {
-    public int $id;
-    public ProductEntity $product;
+    public int $productId;
     public int $quantity;
+    public int $price;
 
-    public function __construct(int $id, ProductEntity $product, int $quantity)
+    public function __construct(int $productId, int $quantity, int $price)
     {
-        $this->id = $id;
-        $this->product = $product;
+        $this->productId = $productId;
         $this->quantity = $quantity;
+        $this->price = $price;
+    }
+
+    public function totalPrice(): int
+    {
+        return $this->quantity * $this->price;
     }
 }
