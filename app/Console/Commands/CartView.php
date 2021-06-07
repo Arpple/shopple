@@ -50,7 +50,7 @@ class CartView extends Command
         $cart = (new CartService($user->id))
             ->get();
 
-        $result = (new CartView($user, $cart))
+        $result = (new \App\Console\Checkout\CartView($user, $cart))
             ->toString();
 
         echo $result . PHP_EOL;

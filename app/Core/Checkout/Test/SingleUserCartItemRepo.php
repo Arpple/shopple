@@ -26,7 +26,10 @@ class SingleUserCartItemRepo implements ICartItemRepo
     public function save(int $userId, int $productId, int $quantity): void
     {
         $this->assertUser($userId);
-        $this->items[$productId] = new CartItemEntity($productId, $quantity, $productId * 100);
+        $this->items[$productId] = new CartItemEntity(
+            $productId, "Product {$productId}",
+            $quantity, $productId * 100
+        );
     }
 
     public function destroy(int $userId, int $productId): void

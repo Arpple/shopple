@@ -9,7 +9,7 @@ class CartItemEntityTest extends TestCase
 {
     public function test_calculate_item_total_price()
     {
-        $item = new CartItemEntity(1, 2, 100);
+        $item = new CartItemEntity(1, 'item', 2, 100);
         $total = $item->totalPrice();
         $this->assertEquals(200, $total);
     }
