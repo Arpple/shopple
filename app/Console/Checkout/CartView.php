@@ -3,6 +3,7 @@
 namespace App\Console\Checkout;
 
 use App\Core\Checkout\Domain\CartEntity;
+use App\Core\Checkout\Domain\CartItemEntity;
 use App\Core\User\Domain\UserEntity;
 
 class CartView
@@ -36,7 +37,10 @@ class CartView
 
     private function getItemLines(): array
     {
-        return [];
+        return array_map(
+            fn (CartItemEntity $item) => "  - {$item->productName} {$item->price}x{$item->quantity} = \${$item->totalPrice()}",
+            $this->cart->items()
+        );
     }
 
     private function getSummaryLines(): array

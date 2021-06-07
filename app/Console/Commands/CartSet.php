@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Console\Checkout\CartView;
 use App\Core\Checkout\Domain\CartService;
 use App\Core\User\Domain\UserService;
 use Illuminate\Console\Command;
@@ -20,7 +21,7 @@ class CartSet extends Command
      *
      * @var string
      */
-    protected $description = 'View current cart';
+    protected $description = 'Set cart product';
 
     /**
      * Create a new command instance.
