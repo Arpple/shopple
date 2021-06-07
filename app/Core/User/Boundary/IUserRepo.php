@@ -2,10 +2,15 @@
 
 namespace App\Core\User\Boundary;
 
+use App\Core\User\Domain\UserAlreadyExistsException;
 use App\Core\User\Domain\UserEntity;
 
 interface IUserRepo
 {
-    public function create(string $name): UserEntity;
+    /**
+     * @throws UserAlreadyExistsException
+     */
+    public function create(string $name): void;
+
     public function findByName(string $name): ?UserEntity;
 }

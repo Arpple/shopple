@@ -8,7 +8,7 @@ use App\Core\User\Domain\UserEntity;
 
 class AllExistsUserRepo implements IUserRepo
 {
-    public function create(string $name): UserEntity
+    public function create(string $name): void
     {
         throw new UserAlreadyExistsException($name);
     }

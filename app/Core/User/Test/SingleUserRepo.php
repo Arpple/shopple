@@ -15,10 +15,9 @@ class SingleUserRepo implements IUserRepo
         $this->id = $id;
     }
 
-    public function create(string $name): UserEntity
+    public function create(string $name): void
     {
         $this->user = new UserEntity($this->id, $name);
-        return $this->user;
     }
 
     public function findByName(string $name): ?UserEntity

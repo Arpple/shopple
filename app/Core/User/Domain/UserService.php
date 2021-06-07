@@ -13,9 +13,12 @@ class UserService
         $this->userRepo = app()->make(IUserRepo::class);
     }
 
-    public function signup(string $name): UserEntity
+    /**
+     * @throws UserAlreadyExistsException
+     */
+    public function signup(string $name): void
     {
-        return $this->userRepo->create($name);
+        $this->userRepo->create($name);
     }
 
     public function login(string $name): ?UserEntity
