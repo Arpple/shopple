@@ -3,8 +3,8 @@
 namespace App\Repo\User;
 
 use App\Core\User\Boundary\IUserRepo;
-use App\Core\User\Domain\UserAlreadyExistsException;
-use App\Core\User\Domain\UserEntity;
+use App\Core\User\Exception\UserAlreadyExistsException;
+use App\Core\User\Entity\UserEntity;
 use App\Models\SimpleUser;
 use Exception;
 

@@ -3,7 +3,7 @@
 namespace App\Repo\Catalog;
 
 use App\Core\Catalog\Boundary\IProductRepo;
-use App\Core\Catalog\Domain\ProductEntity;
+use App\Core\Catalog\Entity\ProductEntity;
 use App\Models\Product;
 use Illuminate\Support\Collection;
 

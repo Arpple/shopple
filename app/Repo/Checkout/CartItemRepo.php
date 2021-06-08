@@ -3,7 +3,7 @@
 namespace App\Repo\Checkout;
 
 use App\Core\Checkout\Boundary\ICartItemRepo;
-use App\Core\Checkout\Domain\CartItemEntity;
+use App\Core\Checkout\Entity\CartItemEntity;
 use App\Models\CartItem;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;

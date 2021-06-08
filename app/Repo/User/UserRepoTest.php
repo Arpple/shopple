@@ -2,7 +2,7 @@
 
 namespace App\Repo\User;
 
-use App\Core\User\Domain\UserAlreadyExistsException;
+use App\Core\User\Exception\UserAlreadyExistsException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
