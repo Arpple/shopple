@@ -2,9 +2,9 @@
 
 namespace App\Console\Checkout;
 
-use App\Core\Checkout\Domain\CartEntity;
+use App\Core\Checkout\Entity\CartEntity;
 use App\Core\Checkout\Test\Example;
-use App\Core\User\Domain\UserEntity;
+use App\Core\User\Entity\UserEntity;
 use PHPUnit\Framework\TestCase;
 
 class CartViewTest extends TestCase

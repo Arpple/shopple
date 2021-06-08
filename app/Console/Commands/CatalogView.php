@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Console\Catalog\ProductView;
-use App\Core\Catalog\Domain\CatalogService;
+use App\Core\Catalog\CatalogService;
 use Illuminate\Console\Command;
 
 class CatalogView extends Command

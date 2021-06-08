@@ -2,9 +2,9 @@
 
 namespace App\Console\Checkout;
 
-use App\Core\Checkout\Domain\CartEntity;
-use App\Core\Checkout\Domain\CartItemEntity;
-use App\Core\User\Domain\UserEntity;
+use App\Core\Checkout\Entity\CartEntity;
+use App\Core\Checkout\Entity\CartItemEntity;
+use App\Core\User\Entity\UserEntity;
 
 class CartView
 {

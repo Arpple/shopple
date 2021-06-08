@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Core\Checkout\Domain\CartService;
-use App\Core\User\Domain\UserService;
+use App\Core\Checkout\CartService;
+use App\Core\User\UserService;
 use Illuminate\Console\Command;
 
 class CartView extends Command

@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Core\User\Domain\UserAlreadyExistsException;
-use App\Core\User\Domain\UserService;
+use App\Core\User\UserAlreadyExistsException;
+use App\Core\User\UserService;
 use Illuminate\Console\Command;
 
 class UserCreate extends Command

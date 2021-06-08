@@ -2,7 +2,7 @@
 
 namespace App\Console\Catalog;
 
-use App\Core\Catalog\Domain\ProductEntity;
+use App\Core\Catalog\Entity\ProductEntity;
 
 class ProductView
 {
