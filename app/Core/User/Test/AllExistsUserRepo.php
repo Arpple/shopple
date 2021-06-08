@@ -3,8 +3,8 @@
 namespace App\Core\User\Test;
 
 use App\Core\User\Boundary\IUserRepo;
-use App\Core\User\Domain\UserAlreadyExistsException;
-use App\Core\User\Domain\UserEntity;
+use App\Core\User\Exception\UserAlreadyExistsException;
+use App\Core\User\Entity\UserEntity;
 
 class AllExistsUserRepo implements IUserRepo
 {

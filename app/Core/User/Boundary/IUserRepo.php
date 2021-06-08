@@ -2,8 +2,8 @@
 
 namespace App\Core\User\Boundary;
 
-use App\Core\User\Domain\UserAlreadyExistsException;
-use App\Core\User\Domain\UserEntity;
+use App\Core\User\Exception\UserAlreadyExistsException;
+use App\Core\User\Entity\UserEntity;
 
 interface IUserRepo
 {

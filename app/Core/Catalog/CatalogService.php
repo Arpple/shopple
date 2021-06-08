@@ -6,7 +6,7 @@ use App\Core\Catalog\Boundary\IProductRepo;
 use App\Core\Catalog\Entity\ProductEntity;
 use Illuminate\Support\Collection;
 
-class CatalogService
+class CatalogService implements ICatalogService
 {
     private IProductRepo $productRepo;
 

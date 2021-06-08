@@ -3,8 +3,8 @@
 namespace App\Core\User\Test;
 
 use App\Core\User\Boundary\IUserRepo;
-use App\Core\User\Domain\UserAlreadyExistsException;
-use App\Core\User\Domain\UserService;
+use App\Core\User\Exception\UserAlreadyExistsException;
+use App\Core\User\UserService;
 use Tests\TestCase as TestsTestCase;
 
 class UserServiceTest extends TestsTestCase
