@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Core\Catalog\Domain;
+namespace App\Core\Catalog;
 
 use App\Core\Catalog\Boundary\IProductRepo;
+use App\Core\Catalog\Entity\ProductEntity;
 use Illuminate\Support\Collection;
 
 class CatalogService

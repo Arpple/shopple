@@ -3,7 +3,7 @@
 namespace App\Core\Catalog\Test;
 
 use App\Core\Catalog\Boundary\IProductRepo;
-use App\Core\Catalog\Domain\ProductEntity;
+use App\Core\Catalog\Entity\ProductEntity;
 use Illuminate\Support\Collection;
 
 class ExampleProductsRepo implements IProductRepo

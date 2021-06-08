@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core\Catalog\Domain;
+namespace App\Core\Catalog\Entity;
 
 class ProductEntity
 {

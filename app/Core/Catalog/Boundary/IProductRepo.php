@@ -2,7 +2,7 @@
 
 namespace App\Core\Catalog\Boundary;
 
-use App\Core\Catalog\Domain\ProductEntity;
+use App\Core\Catalog\Entity\ProductEntity;
 use Illuminate\Support\Collection;
 
 interface IProductRepo

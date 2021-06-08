@@ -3,7 +3,7 @@
 namespace App\Core\Catalog\Test;
 
 use App\Core\Catalog\Boundary\IProductRepo;
-use App\Core\Catalog\Domain\CatalogService;
+use App\Core\Catalog\CatalogService;
 use PHPUnit\Framework\TestCase;
 
 class CatalogServiceTest extends TestCase
