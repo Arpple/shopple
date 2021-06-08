@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Core\Checkout\Domain;
+namespace App\Core\Checkout;
 
 use App\Core\Checkout\Boundary\ICartItemRepo;
+use App\Core\Checkout\Entity\CartEntity;
 
-class CartService
+class CartService implements ICartService
 {
     private int $userId;
     private ICartItemRepo $itemRepo;

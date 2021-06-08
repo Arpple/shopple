@@ -2,7 +2,7 @@
 
 namespace App\Core\Checkout\Test;
 
-use App\Core\Checkout\Domain\CartItemEntity;
+use App\Core\Checkout\Entity\CartItemEntity;
 
 class Example
 {

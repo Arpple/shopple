@@ -2,7 +2,7 @@
 
 namespace App\Core\Checkout\Test;
 
-use App\Core\Checkout\Domain\CartEntity;
+use App\Core\Checkout\Entity\CartEntity;
 use PHPUnit\Framework\TestCase;
 
 class CartEntityTest extends TestCase

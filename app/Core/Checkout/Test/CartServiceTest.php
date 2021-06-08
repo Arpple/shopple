@@ -3,7 +3,7 @@
 namespace App\Core\Checkout\Test;
 
 use App\Core\Checkout\Boundary\ICartItemRepo;
-use App\Core\Checkout\Domain\CartService;
+use App\Core\Checkout\CartService;
 use PHPUnit\Framework\TestCase;
 
 class CartServiceTest extends TestCase

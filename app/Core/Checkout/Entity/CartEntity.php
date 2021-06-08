@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core\Checkout\Domain;
+namespace App\Core\Checkout\Entity;
 
 class CartEntity
 {
